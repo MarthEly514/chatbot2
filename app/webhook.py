@@ -1,22 +1,19 @@
 # webhook.py
-from fastapi import Request
+from fastapi import Request, Response
 from app.config import Config
 from app.sender import send_text_message
 import json
 
 async def verify_get(request: Request):
-    params = dict(request.query_params)
-    mode = params.get("hub.mode")
-    token = params.get("hub.verify_token")
-    challenge = params.get("hub.challenge")
+    mode = request.query_params.get("hub.mode")
+    token = request.query_params.get("hub.verify_token")
+    challenge = request.query_params.get("hub.challenge")
+
     if mode == "subscribe" and token == Config.VERIFY_TOKEN:
-        if challenge is None:
-            return {"error": "Missing challenge"}, 400
-        try:
-            return int(challenge)
-        except (TypeError, ValueError):
-            return {"error": "Invalid challenge"}, 400
-    return {"error": "Verification failed"}, 403
+        return Response(content=challenge, media_type="text/plain")
+
+    return Response(content="Forbidden", status_code=403)
+
 
 async def handle_post(data: dict):
     """
