@@ -110,5 +110,5 @@ Envoyez-moi simplement le contenu à vérifier !
     
     @classmethod
     def create_temp_dir(cls):
-        """Crée le dossier temporaire pour les médias"""
+        """Création le dossier temporaire pour les médias"""
         os.makedirs(cls.TEMP_MEDIA_DIR, exist_ok=True)
