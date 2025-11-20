@@ -1,1 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Variables d'environnement (CRITIQUE!)
 .env
+.env.local
+.env.production
+
+# Modèles ML (cache)
+models/
+*.bin
+*.safetensors
+*.msgpack
+
+# Médias temporaires
+/tmp/
+temp/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.mp3
+*.wav
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
