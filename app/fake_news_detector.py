@@ -2,7 +2,6 @@
 Détecteur de fake news utilisant des modèles NLP de Hugging Face
 """
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
-import torch
 from typing import Tuple, Dict
 from app.config import Config
 from app.utils import setup_logger
